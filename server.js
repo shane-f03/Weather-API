@@ -47,7 +47,7 @@ async function getGeoLocation(ip) {
   return rawData.city;
 }
 
-app.get("/", async (req, res) => {
+app.get("/weather", async (req, res) => {
   const city = req.query.city || (await getGeoLocation(req.headers["x-forwarded-for"]));
 
   const result = await getWeatherData(city);
